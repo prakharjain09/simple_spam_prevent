@@ -1,0 +1,5 @@
+
+<%= form_for :show_captcha, :url => url_for(:controller => 'captcha', :action => 'verify_captcha') do |f| %>
+	<%= show_simple_captcha %>
+	<%= f.submit :submit %>
+<% end %>

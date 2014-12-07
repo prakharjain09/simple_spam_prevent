@@ -1,0 +1,7 @@
+Message: <%= @message if @message.present? %>
+
+<%= form_for :my_form, :url => url_for(:controller => 'application', :action => 'abc') do |f| %>
+  <%= f.text_field :message %>
+	<%= f.submit :submit %>
+<% end %>
+
