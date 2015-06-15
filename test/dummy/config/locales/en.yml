@@ -6,3 +6,5 @@ en:
   simple_captcha:
     label: Enter captcha and submit
     placeholder: ""
+    message:
+      default: Secret Code did not match with the Image

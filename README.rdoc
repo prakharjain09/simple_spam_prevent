@@ -1,3 +1,13 @@
 = SimpleSpamPrevent
 
-This project rocks and uses MIT-LICENSE.
+SimpleSpamPrevent is a gem for preventing spams from logged in users.
+
+Their are many gems available to show captcha but they dont help us when a user is logged in. You can configure each rails action to a limit 'x' in 'y' seconds. So if a user is logged in and he hits the same page more than 'x' number of times in the last 'y' seconds, then he will be redirected to a page where he needs to enter captcha.
+
+= Requirements
+
+	>= 3.2
+
+= Usage
+
+
