@@ -6,8 +6,35 @@ Their are many gems available to show captcha but they dont help us when a user 
 
 = Requirements
 
-	>= 3.2
+	rails >= 3.0
 
 = Usage
 
+Let say you want to block repetetive requests if greater than 10 on index action of 'HomeController' in 2 sec.
 
+Let say the model of logged_in entity in your app is User. Define a method in application controller current_user which gives you current logged in users id.
+
+Then inside Home controller add
+
+```ruby
+	before_filter(only: [:index]) { prevent_spam_from(klass, max_times, interval) }
+```
+
+In our case:
+```ruby
+	before_filter(only: [:index]) { prevent_spam_from(User, 10, 2.second) }
+```
+
+Note: This assumes that you have a function "current_#{klass}" defined. (In this case current_user) which returns the ActiveRecord object of the logged in user.
+
+If you have some other method defined instead of "current_#{klass}" which gives us the activerecord object, then use
+
+```ruby
+	before_filter(only: [:index]) { prevent_spam(:klass, #id_of_user, max_times, interval) }
+```
+
+If function "foo" gives us the active record obj for logged in user, then we can write,
+
+```ruby
+	before_filter(only: [:index]) { prevent_spam(:user, foo.id, 10, 2.second) }
+```
