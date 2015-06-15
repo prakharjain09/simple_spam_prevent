@@ -6,7 +6,7 @@ Their are many gems available to show captcha but they dont help us when a user 
 
 = Requirements
 
-		rails >= 3.0
+  rails >= 3.0
 
 = Usage
 
@@ -16,24 +16,18 @@ Let say the model of logged_in entity in your app is User. Define a method in ap
 
 Then inside Home controller add
 
-		before_filter(only: [:index]) { prevent_spam_from(klass, max_times, interval) }
+  before_filter(only: [:index]) { prevent_spam_from(klass, max_times, interval) }
 
 In our case:
-		before_filter(only: [:index]) { prevent_spam_from(User, 10, 2.second) }
 
-  $ rdoc [options] [names...]
-
-For an up-to-date option summary, type
-
-  $ rdoc --help
-
+  before_filter(only: [:index]) { prevent_spam_from(User, 10, 2.second) }
 
 Note: This assumes that you have a function "current_#{klass}" defined. (In this case current_user) which returns the ActiveRecord object of the logged in user.
 
 If you have some other method defined instead of "current_#{klass}" which gives us the activerecord object, then use
 
-		before_filter(only: [:index]) { prevent_spam(:klass, #id_of_user, max_times, interval) }
+  before_filter(only: [:index]) { prevent_spam(:klass, #id_of_user, max_times, interval) }
 
 If function "foo" gives us the active record obj for logged in user, then we can write,
 
-		before_filter(only: [:index]) { prevent_spam(:user, foo.id, 10, 2.second) }
+  before_filter(only: [:index]) { prevent_spam(:user, foo.id, 10, 2.second) }
