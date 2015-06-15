@@ -21,6 +21,13 @@ Then inside Home controller add
 In our case:
 		before_filter(only: [:index]) { prevent_spam_from(User, 10, 2.second) }
 
+  $ rdoc [options] [names...]
+
+For an up-to-date option summary, type
+
+  $ rdoc --help
+
+
 Note: This assumes that you have a function "current_#{klass}" defined. (In this case current_user) which returns the ActiveRecord object of the logged in user.
 
 If you have some other method defined instead of "current_#{klass}" which gives us the activerecord object, then use
