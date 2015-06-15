@@ -8,6 +8,17 @@ Their are many gems available to show captcha but they dont help us when a user 
 
   rails >= 3.0
 
+= Setup
+
+Add to your Gemfile:
+  gem 'simple_spam_prevent'
+
+Add the following line to config/routes.rb:
+  mount SimpleSpamPrevent::Engine => "/simple_spam_prevent", :as => 'simple_spam_prevent'
+
+Run:
+  rake db:migrate
+
 = Usage
 
 Let say you want to block repetetive requests if greater than 10 on index action of 'HomeController' in 2 sec.
